@@ -1,0 +1,76 @@
+	#.
+
+1. 정수와 실수의 연산시?
+- 실수를 따라간다.
+ (이유 : 정수는 실수 표현 x)
+
+
+2. 괄호 안 공백은 엔터로 띄울 수 있음.
+eg.
+System.out.print(x + "를 " + y + "로 나눈 몫은 " 
+                   + div + "이고 나머지는 " + r + "입니다.");
+
+
+3. printf
+- 문자 사이에 숫자값을 집어넣고 싶을 때
+- %d : 뒤에 정수 하나가 온다.
+eg. System.out.printf("%dHello %d World %d \n", 4, 1, 9);  
+    -> 4Hello 1 World 9
+- %f : 실수 
+- %.f : 실수 소숫점 자리를 더 표현 가능 eg. %.15f (소숫점 아래 15자리까지)
+- %015d : 15자리 정수 표현
+
+- 이러한 서식문자는 너무 많아서 못 외우므로 검색해서 보는 것 연습
+https://docs.oracle.com/javase/tutorial/java/data/numberformat.html
+
+
+4. 복합대입연산자
+- 종류
+  +=, -=, *=, /=, %=
+
+5. 증감연산자
+- a++, ++a
+- --a, a--
+ : 1씩 증가 또는 감소함.
+
+6. 관계연산자
+System.out.println(55 == 55);  // 왼쪽과 오른쪽이 같은지 "물어볼 수 있다(중요)"
+System.out.println(55 != 55);  // ! = not, 다른지 물어봄
+System.out.println(55 > 55);   
+System.out.println(55 < 55);
+System.out.println(55 >= 55);  // 왼쪽이 오른쪽보다 크거나 같은지
+System.out.println(55 <= 55);  // 왼쪽이 오른쪽보다 작거나 같은지
+
+- 자바는 한번에 하나씩밖에 못 물어봄. 
+eg. 
+   System.out.println(0 <= number <= 100);  ->  컴파일 에러 나옴.
+
+
+7. 논리연산자
+- 두 개 이상의 논리값을 비교해야할 때 사용
+
+eg. 임의의 숫자가 0 ~ 100 사이의 숫자인지 구하라.
+1)
+  System.out.println(0 <= number);
+  System.out.println(number <= 100); 
+: 관계연산자는 하나의 true, false 값으로 나타내기 힘듬.
+2)
+  System.out.println(0 <= number && number <= 100); 
+
+
+- && (and 연산자)
+  : 둘 다 true 여야 true, 나머지는 false
+- || (or 연산자)
+  : 둘 중 하나만 true 여도 true
+
+
+
+
+
+
+
+
+
+
+
+

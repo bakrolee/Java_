@@ -12,10 +12,10 @@ public class VendingMachine {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 	
-		// 1. 사용자에게 돈을 입력 받는다. eg. 10000만원
+		// 1. 사용자에게 돈을 입력 받는다. eg. 10000원
 		// 2. 입력받은 돈에서 1, 2, 3번 중 선택을 하게 한다.
-		// 3. 잔액이 마이너스가 되기 전까지 반복할 수 있게 한다.
-		//    (잔액이 마이너스가 되면 "잔액이 부족하다"고 메시지를 나타낸다.
+		// 3. 잔액이 부족하기 전까지(1500, 1300) 반복할 수 있게 한다.
+		//    (잔액이 부족하면 "잔액이 부족하다"고 메시지를 나타낸다.
 		// 4. 총 몇 개의 캔을 구입했는지 개수를 센다.
 		// 5. 남은 잔액이 얼마인지 거스름돈을 표기한다.
 		System.out.print("돈 입력: ");
@@ -26,8 +26,7 @@ public class VendingMachine {
 		while (i) {
 			System.out.print("다음 중 선택해주세요.  1번 콜라, 2번 사이다, 3번 계산: ");
 			int selc = scan.nextInt();
-			
-			
+			// 1번 콜라
 			if (selc == 1) {
 				if (money >= 1500) {
 					money -= 1500;
@@ -36,7 +35,7 @@ public class VendingMachine {
 					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n\n");
 				}
 			}
-			
+			// 2번 사이다
 			else if (selc == 2) {
 				if (money >= 1300) {
 					money -= 1300;
@@ -45,7 +44,6 @@ public class VendingMachine {
 					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n\n");
 				} 
 			}
-			
 			// 탈출
 			else if (selc == 3) {
 				i = false;

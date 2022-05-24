@@ -1,0 +1,17 @@
+	#.
+
+1. 클래스 Random
+- java.util.Random으로 불러올 수 있음.
+- 역할 : 임의로 생성
+- 사용법
+  Random random(=이름) = new Random();
+  ? = random.nextInt(100);
+      -> 괄호 안 숫자 : 범위 지정   eg.여기선 0부터 시작해서 99까지 중 뽑음
+
+
+2. 
+
+
+
+
+ 

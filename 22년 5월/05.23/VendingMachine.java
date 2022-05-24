@@ -24,7 +24,7 @@ public class VendingMachine {
 		boolean i = true;
 		int count = 0;
 		while (i) {
-			System.out.print("\n다음 중선택해주세요.  1번 콜라, 2번 사이다, 3번 계산: ");
+			System.out.print("다음 중 선택해주세요.  1번 콜라, 2번 사이다, 3번 계산: ");
 			int selc = scan.nextInt();
 			
 			
@@ -33,7 +33,7 @@ public class VendingMachine {
 					money -= 1500;
 					count++;
 				} else {
-					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n");
+					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n\n");
 				}
 			}
 			
@@ -42,7 +42,7 @@ public class VendingMachine {
 					money -= 1300;
 					count++;
 				} else {
-					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n");
+					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n\n");
 				} 
 			}
 			

@@ -18,38 +18,39 @@ public class VendingMachine {
 		//    (잔액이 마이너스가 되면 "잔액이 부족하다"고 메시지를 나타낸다.
 		// 4. 총 몇 개의 캔을 구입했는지 개수를 센다.
 		// 5. 남은 잔액이 얼마인지 거스름돈을 표기한다.
-		
-		System.out.println("돈을 입력해주세요. ");
+		System.out.print("돈 입력: ");
 		int money = scan.nextInt();
+		
+		boolean i = true;
 		int count = 0;
-		
-		int i = 1;
-		while (i > 0) {
-			System.out.print("다음 3가지 중 선택해주세요. \n1번 콜라 : 1500원, 2번 사이다 : 1300, 3번 계산 - ");
-			int sel = scan.nextInt();
-				
-					if (sel == 1) {
-						if (money > 1500) {
-							money -= 1500;
-							count++;
-						} else {
-							System.out.println("잔액이 부족합니다. 다시선택해주세요.");
-						}
-					} else if (sel == 2) {
-						money -= 1300;
-						count++;
-					} else if (sel == 3) {
-						i = -1;
-						System.out.println("거스릅돈? " + money);
-					}
-					
-				
-				
-					
-				
-			} 
-		
-		System.out.println("총 몇 개의 캔을 구입? " + count);
-		// System.out.println("거스릅돈? ");
+		while (i) {
+			System.out.print("\n다음 중선택해주세요.  1번 콜라, 2번 사이다, 3번 계산: ");
+			int selc = scan.nextInt();
+			
+			
+			if (selc == 1) {
+				if (money >= 1500) {
+					money -= 1500;
+					count++;
+				} else {
+					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n");
+				}
+			}
+			
+			else if (selc == 2) {
+				if (money >= 1300) {
+					money -= 1300;
+					count++;
+				} else {
+					System.out.print("잔액이 부족합니다. 다시 선택해주세요.\n");
+				} 
+			}
+			
+			// 탈출
+			else if (selc == 3) {
+				i = false;
+			}
+		}
+		System.out.printf("\n총 %d개의 캔을 구입하셨습니다.\n잔액은 %d원입니다.", count, money);
 	}
 }

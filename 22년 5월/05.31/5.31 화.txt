@@ -1,0 +1,40 @@
+	#.
+
+1. eclipse 다운
+: 링크들어가서 -> 이클립스 Download packages 선택 (박스 밑에 작은 글씨로 있음) 
+-> 우측에 박스 - related link - install Guide 클릭 -> 내가 쓰는 자바 버전 지원하는지 확인하고 그 중에서 최신버전 찾기 -> 다시 이전화면으로
+-> 우측 박스 - more downlads - 내가 앞서 확인한 버전 선택 -> Eclipse IDE for Java Developers 에서 운영체제 맞는 파일 다운로드
+
+
+2. eclipse 사용법
+: 처음 시작하면 workspace 설정하게됨 -> 여기에 다 저장됨 
+
+2-1. 폰트설정
+: window - preferences -> 좌 상단에 font 검색 -> basic 폴더 -> text font 더블클릭
+
+2-2. encoding
+: window - preferences -> 좌 상단에 encoding 검색 -> workspace -> 좌하단에 other -> utf-8 선택
+
+2-3. src 폴더
+: 여기에 우리가 작성한 소스코드들이 저장됨
+: 
+
+
+3. 단축키
+- ctrl + space : 자동완성
+  ex. sysout 쓰고 ctrl + space
+
+- ctrl + F11 : 컴파일 & 실행
+
+- ctrl + shift + f : 자동정렬
+
+
+4. 디버깅
+- step into : 메소드 안으로 들어가 메소드 안의 흐름을 볼 수 있음
+- step over : 다음줄 볼 수 있음
+
+
+
+
+
+

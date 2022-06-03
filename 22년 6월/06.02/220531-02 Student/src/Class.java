@@ -23,8 +23,7 @@ public class Class {
 	} 
 	
 	// 기본 생성자 만듬 : 이유는 메인메소드용 
-	public Class() {
-	}
+	public Class() {}
 
 // 1. 3명의 학생의 이름을 콘솔에 출력할 수 있음.
 	public void printNameAll() {
@@ -64,36 +63,55 @@ public class Class {
 		System.out.println("관리자 프로그램입니다.");
 		
 		Student c1 = new Student();
+		student1 = c1;				// (수정) 새로 삽입함
 		Student c2 = new Student();
+		student2 = c2;
 		Student c3 = new Student();
+		student3 = c3;
 		
-		Class group = new Class(c1, c2, c3);
+		// Class this = new Class(c1, c2, c3); // (에러) 얘의 정보가 매니지 프로그램이 끝나면 사라짐!! 
 		
 		while(true) {
 			System.out.println("원하시는 기능을 선택해주세요. 1번: 학급 이름, 2번: 학급 평균, 3번: 1등학생정보, 4번: 프로그램 끝내기 ");
 			Scanner scan = new Scanner(System.in);
 			int select = scan.nextInt();
-			if (select == 1) {
-				group.printNameAll();
-			}
-			else if (select == 2) {
-				System.out.println(group.getAvgAll());
-			}
-			else if (select == 3) {
-				System.out.println(group.getAvgTop().getName());
-				System.out.printf("국어: %d, 영어: %d, 수학: %d", 
-						group.getAvgTop().getKor(), group.getAvgTop().getEng(), group.getAvgTop().getMath());
-				System.out.println();
-			}
-			else if (select == 4) {
-				System.out.println("프로그램을 종료합니다.");
-				break;
-			}
-			else {
-				System.out.println("잘못된 입력입니다. 다시 선택해주세요.");
+			
+//			if (select == 1) {
+//				this.printNameAll();
+//			}
+//			else if (select == 2) {
+//				System.out.println(this.getAvgAll());
+//			}
+//			else if (select == 3) {
+//				System.out.println(this.getAvgTop().getName());
+//				System.out.printf("국어: %d, 영어: %d, 수학: %d", 
+//						this.getAvgTop().getKor(), this.getAvgTop().getEng(), this.getAvgTop().getMath());
+//				System.out.println();
+//			}
+//			else if (select == 4) {
+//				System.out.println("프로그램을 종료합니다.");
+//				break;
+//			}
+//			else {
+//				System.out.println("잘못된 입력입니다. 다시 선택해주세요.");
+//			}
+			
+			switch (select) {
+				case 1:
+					this.printNameAll();
+				case 2:
+					System.out.println(this.getAvgAll());
+				case 3:
+					System.out.println(this.getAvgTop().getName());
+					System.out.printf("국어: %d, 영어: %d, 수학: %d", 
+							this.getAvgTop().getKor(), this.getAvgTop().getEng(), this.getAvgTop().getMath());
+					System.out.println();
+				case 4:
+					System.out.println("프로그램을 종료합니다.");
+					break;
+				default:
+					System.out.println("잘못된 입력입니다. 다시 선택해주세요.");
 			}
 		}
 	}
-	
-	
 }

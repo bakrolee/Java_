@@ -29,6 +29,8 @@ public class TestStudent {
 		
 		// 관리자 프로그램
 		group.manage();
+		
+		System.out.println(group.getAvgSum());
 	}
 }
 

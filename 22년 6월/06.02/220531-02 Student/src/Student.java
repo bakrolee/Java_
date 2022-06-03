@@ -14,7 +14,7 @@ public class Student {
 		int kor = scan.nextInt();
 		int eng = scan.nextInt();
 		int math = scan.nextInt();
-		
+		//
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;

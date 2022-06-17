@@ -13,7 +13,7 @@ import java.util.Scanner;
 // 조련사 담당에 따라 동물 목록을 볼 수 있음. (담당이 없는 동물도 볼 수 있어야 함)
 
 public class Zoo {
-	Animal[] exsitAnimal;
+	Animal[] existAnimal;
 	EatMeat[] eatMeat;
 	EatPlant[] eatPlant;
 	EatMix[] eatMix;
@@ -22,27 +22,27 @@ public class Zoo {
 
 	// 동물 목록
 	public Animal[] registerAnimal() {
-		exsitAnimal = new Animal[5];
-		exsitAnimal[0] = new Animal("호랑이", 5, 70, 1);
-		exsitAnimal[1] = new Animal("사자", 7, 80, 1);
-		exsitAnimal[2] = new Animal("사슴", 3, 35, -1);
-		exsitAnimal[3] = new Animal("코끼리", 8, 200, -1);
-		exsitAnimal[4] = new Animal("강아지", 4, 14, 0);
+		existAnimal = new Animal[5];
+		existAnimal[0] = new Animal("호랑이", 5, 70, 1);
+		existAnimal[1] = new Animal("사자", 7, 80, 1);
+		existAnimal[2] = new Animal("사슴", 3, 35, -1);
+		existAnimal[3] = new Animal("코끼리", 8, 200, -1);
+		existAnimal[4] = new Animal("강아지", 4, 14, 0);
 
-		return exsitAnimal;
+		return existAnimal;
 	}
 	
 	// 1.육식동물 분류.
 	public EatMeat[] sortMeat() {
 		int n = 0;
 		eatMeat = new EatMeat[1];
-		for (int i = 0; i < exsitAnimal.length; i++) {
-			if (exsitAnimal[i].getFeed() > 0) {
+		for (int i = 0; i < existAnimal.length; i++) {
+			if (existAnimal[i].getFeed() > 0) {
 				// 크기가 2이상일때부터 확장.
 				if (eatMeat.length + n > 1) {
 					eatMeat = Arrays.copyOf(eatMeat, eatMeat.length + 1);
 				}
-				eatMeat[eatMeat.length - 1] = exsitAnimal[i];
+				eatMeat[eatMeat.length - 1] = existAnimal[i];
 				n++;
 			}
 		}
@@ -61,13 +61,13 @@ public class Zoo {
 	public EatPlant[] sortPlant() {
 		eatPlant = new EatPlant[1];
 		int n = 0;
-		for (int i = 0; i < exsitAnimal.length; i++) {
-			if (exsitAnimal[i].getFeed() < 0) {
+		for (int i = 0; i < existAnimal.length; i++) {
+			if (existAnimal[i].getFeed() < 0) {
 				// 크기가 2이상일때부터 확장.
 				if (eatPlant.length + n > 1) {
 					eatPlant = Arrays.copyOf(eatPlant, eatPlant.length + 1);
 				}
-				eatPlant[eatPlant.length - 1] = exsitAnimal[i];
+				eatPlant[eatPlant.length - 1] = existAnimal[i];
 				n++;
 			}
 		}
@@ -87,13 +87,13 @@ public class Zoo {
 	public EatMix[] sortMix() {
 		eatMix = new EatMix[1];
 		int n = 0;
-		for (int i = 0; i < exsitAnimal.length; i++) {
-			if (exsitAnimal[i].getFeed() == 0) {
+		for (int i = 0; i < existAnimal.length; i++) {
+			if (existAnimal[i].getFeed() == 0) {
 				// 크기가 2이상일때부터 확장.
 				if (eatMix.length + n > 1) {
 					eatMix = Arrays.copyOf(eatMix, eatMix.length + 1);
 				}
-				eatMix[eatMix.length - 1] = exsitAnimal[i];
+				eatMix[eatMix.length - 1] = existAnimal[i];
 				n++;
 			}
 		}
@@ -109,17 +109,18 @@ public class Zoo {
 	}
 
 	
-	// 조련사 목록
+	// 4. 조련사 목록
 	public ZooKeeper[] registerKeeper() {
 		keeper = new ZooKeeper[3];
-		keeper[0] = new ZooKeeper("제임스", "조련사", exsitAnimal[0], exsitAnimal[3]);
-		keeper[1] = new ZooKeeper("한스", "조련사", exsitAnimal[2]);
-		keeper[2] = new ZooKeeper("강형욱", "조련사", exsitAnimal[4]);
+		keeper[0] = new ZooKeeper("제임스", "조련사", existAnimal[0], existAnimal[3]);
+		keeper[1] = new ZooKeeper("한스", "조련사", existAnimal[2]);
+		keeper[2] = new ZooKeeper("강형욱", "조련사", existAnimal[4]);
 		
 		return keeper;
 	}
 	
-	public boolean one(Animal a, int n) {
+	// 메소드 : 동물원 동물 하나 vs 조련사 동물 배열 비교
+	public boolean keepContain(Animal a, int n) {
 		for (int i = 0; i < keeper[n].getManageAnimal().length; i++) {
 			if (a.getSpecies().equals(keeper[n].getManageAnimal()[i].getSpecies())) {
 				return true;
@@ -130,13 +131,13 @@ public class Zoo {
 	
 	// 조련사 1인이 담당하지 않는 동물
 	public Animal[] notManage(ZooKeeper keep, int x) {
-		Animal[] temp = new Animal[exsitAnimal.length - keep.getManageAnimal().length];
+		Animal[] temp = new Animal[existAnimal.length - keep.getManageAnimal().length];
 		int n = 0;
-		for (int i = 0; i < exsitAnimal.length; i++) {
-			if (one(exsitAnimal[i], x)) {
+		for (int i = 0; i < existAnimal.length; i++) {
+			if (keepContain(existAnimal[i], x)) {
 				continue;
 			} else {
-				temp[n] = exsitAnimal[i];
+				temp[n] = existAnimal[i];
 				n++;
 			}
 		}
@@ -152,14 +153,17 @@ public class Zoo {
 		switch (sel) {
 		case 1:
 //			notManage(keeper[sel - 1]);
+			System.out.println("1. 제임스");
 			System.out.println("담당동물: " + keeper[sel - 1].toString());
 			System.out.println("담당하지 않는 동물: " + Arrays.toString(notManage(keeper[sel - 1], sel - 1)));
 			break;
 		case 2:
+			System.out.println("2. 한스");
 			System.out.println("담당동물: " + keeper[sel - 1].toString());
 			System.out.println("담당하지 않는 동물: " + Arrays.toString(notManage(keeper[sel - 1], sel - 1)));
 			break;
 		case 3:
+			System.out.println("3. 강형욱");
 			System.out.println("담당동물: " + keeper[sel - 1].toString());
 			System.out.println("담당하지 않는 동물: " + Arrays.toString(notManage(keeper[sel - 1], sel - 1)));
 			break;

@@ -16,7 +16,7 @@ import kr.co.greenart.controller.MyInterceptor;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("kr.co.greenart")
+@ComponentScan(basePackages = {"kr.co.greenart"})
 public class WebConfig implements WebMvcConfigurer {
 	@Autowired
 	private MyInterceptor interceptor;
